@@ -40,6 +40,7 @@ var cleanse = require('cleanse-html');
 ```javascript
 cleanse(string,options);
 ```
+
   * **string** is the text that you want to cleanse.
   * **options** is an optional settings object describing what to cleanse:
     * **entity** (bool) remove/ignore HTML entities (names and numbers). Defaults to true.

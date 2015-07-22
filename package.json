@@ -1,7 +1,7 @@
 {
 	"name": "cleanse-html",
 	"description": "Simple tool to remove html from a string and returns a string of plain text",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"tags": [
 		"html",
 		"cleanse",
