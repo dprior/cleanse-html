@@ -1,0 +1,39 @@
+{
+	"name": "cleanse-html",
+	"description": "Simple tool to remove html from a string and returns a string of plain text",
+	"version": "0.0.1",
+	"tags": [
+		"html",
+		"cleanse",
+		"text"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/dprior/cleanse-html.git"
+	},
+	"author": {
+		"name": "David Prior",
+		"email": "davidprior1004@gmail.com"
+	},
+	"contributors": [
+		{
+			"name": "Jesse Wise",
+			"email": "jwise7@gmail.com"
+		}
+	],
+	"keywords":[
+		"html",
+		"cleanse",
+		"text"
+	],
+	"bugs": {
+		"url": "https://github.com/dprior/cleanse-html/issues"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://www.opensource.org/licenses/MIT"
+		}
+	],
+	"main": "cleanse.js"
+}
