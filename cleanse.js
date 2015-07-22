@@ -1,4 +1,4 @@
-var globalOptions = { //defaults to remove all html
+var globalOptions = {
   entity:true,
   head:true,
   script:true,
@@ -59,14 +59,13 @@ function cleanseHtml(str, options){
   		str = str.replace(/\s{2,}/g, ' '); //replace more than one space with a single space
   		str = str.replace(/^\s+/,''); //remove lead space
       str = str.replace(/\s+$/,''); //remove trailing space
-
       return str;
   }
 }
 cleanseHtml.configure = function(options){
   options = options || {};
   for(var key in options){
-    if(options.hasOwnProperty(key) && globalOptions[key]){
+    if(options.hasOwnProperty(key) && typeof globalOptions[key] !== 'undefined'){
       globalOptions[key] = options[key];
     }
   }
