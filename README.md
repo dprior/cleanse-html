@@ -1,4 +1,4 @@
-# mongo-atm
+# cleanse-html
 
 Simple tool to remove html from a string and returns a string of plain text
 
