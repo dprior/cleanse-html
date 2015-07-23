@@ -9,8 +9,15 @@ var globalOptions = {
 function cleanseHtml(str, options){
   if(typeof str === 'object')
     options = str;
-  if(typeof options === 'object')
-    cleanseHtml.configure(options);
+  if(typeof options !== 'object'){
+    options = globalOptions;
+  }else{
+    for(var key in globalOptions){
+      if(globalOptions.hasOwnProperty(key) && typeof options[key] === 'undefined'){
+        options[key] = globalOptions[key];
+      }
+    }
+  }
   if(typeof str === 'string')
     return cleanse();
 
@@ -41,19 +48,19 @@ function cleanseHtml(str, options){
                       "diams":"♦","hearts":"♥","spades":"♠","loz":"◊"};
     	if(typeof str == 'undefined')
     		return "";
-    	if(globalOptions.entity){
+    	if(options.entity){
         str = str.replace(/&([A-Za-z]+);/g, function(fullStr, match){return entityName.hasOwnProperty(match) ? entityName[match] : fullStr});
         str = str.replace(/&#(\d{1,4});/, function(fullStr, code) { return String.fromCharCode(code); });
       }
-      if(globalOptions.script)
+      if(options.script)
     	  str = str.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,' '); //removes script section entirely
-    	if(globalOptions.iframe)
+    	if(options.iframe)
         str = str.replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi,' '); //removes iframe section entirely
-    	if(globalOptions.head)
+    	if(options.head)
         str = str.replace(/<head\b[^<]*(?:(?!<\/head>)<[^<]*)*<\/head>/gi,' '); //removes head section entirely
-    	if(globalOptions.style)
+    	if(options.style)
         str = str.replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi,' '); //removes style section entirely
-      if(globalOptions.html)
+      if(options.html)
         str = str.replace(/<(?:.|\n)*?>/gm,' '); //remove all remaining tags
         //cleanup
   		str = str.replace(/\s{2,}/g, ' '); //replace more than one space with a single space
