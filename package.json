@@ -35,5 +35,8 @@
 			"url": "http://www.opensource.org/licenses/MIT"
 		}
 	],
-	"main": "cleanse.js"
+	"main": "cleanse.js",
+	"scripts":{
+		"test":"mocha"
+	}
 }
