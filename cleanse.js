@@ -61,8 +61,7 @@ function cleanseHtml(str, options){
     	if(options.style)
         str = str.replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi,' '); //removes style section entirely
       if(options.html){
-        str = str.replace(/='.*?'/gm,'=""');
-        str = str.replace(/<(?:.|\n)*?>/gm,' '); //remove all remaining tags
+        str = str.replace(/<\/?[a-z]+(?:\s[a-z0-9]+(=('.*?'|".*?"))?)*[\s\/]*>/gm,' '); //remove all remaining tags
       }
         //cleanup
   		str = str.replace(/\s{2,}/g, ' '); //replace more than one space with a single space
