@@ -60,8 +60,10 @@ function cleanseHtml(str, options){
         str = str.replace(/<head\b[^<]*(?:(?!<\/head>)<[^<]*)*<\/head>/gi,' '); //removes head section entirely
     	if(options.style)
         str = str.replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi,' '); //removes style section entirely
-      if(options.html)
+      if(options.html){
+        str = str.replace(/='.*?'/gm,'=""');
         str = str.replace(/<(?:.|\n)*?>/gm,' '); //remove all remaining tags
+      }
         //cleanup
   		str = str.replace(/\s{2,}/g, ' '); //replace more than one space with a single space
   		str = str.replace(/^\s+/,''); //remove lead space
