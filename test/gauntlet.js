@@ -20,6 +20,14 @@ describe("cleanse-html",function(){
 			var html = "<p><img src='...' alt='This image is > most images.' />Hello World</p>";
 			assert.equal("Hello World",cleanse(html));
 		});
+		it('should allow a digit option for attributes',function(){
+			var html = "<p><img src='...' height=100 width=200 />Hello World</p>";
+			assert.equal("Hello World",cleanse(html));
+		});
+		it('should allow spaces before and/or after = when assigning attributes',function(){
+			var html = "<p><img src='...' height = 100 width=200 />Hello World</p>";
+			assert.equal("Hello World",cleanse(html));
+		});
 		it('should handle "> inside of a html entities attribute',function(){
 			var html = "<span test='t\">e'>Hello</span><span test='st'/>World</span>"; //NOTE: fun html code here!
 			assert.equal("Hello World",cleanse(html));
